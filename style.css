@@ -1,0 +1,376 @@
+/* style guide */
+/* -mobile: 375px
+- Desktop : 1440px
+
+### Primary
+
+- Linear gradient (active input border): hsl(249, 99%, 64%) to hsl(278, 94%, 30%)
+- Red (input errors): hsl(0, 100%, 66%)
+
+### Neutral
+
+- White: hsl(0, 0%, 100%)
+- Light grayish violet: hsl(270, 3%, 87%)
+- Dark grayish violet: hsl(279, 6%, 55%)
+- Very dark violet: hsl(278, 68%, 11%)
+
+## Typography
+
+### Body Copy
+
+- Font size: 18px
+
+### Font
+
+- Family: [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk)
+- Weights: 500 */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500&display=swap');
+
+:root {
+    --white: hsl(0, 0%, 100%);
+    --light-gray-violet: hsl(270, 3%, 87%);
+    --dark-gray-violet: hsl(279, 6%, 55%);
+    --darker-violet: hsl(278, 68%, 11%);
+
+    --input-error: hsl(0, 100%, 66%);
+    --border-gradient: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+}
+
+/* RESET */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    background: var(--darker-violet);
+}
+
+
+/* html {
+    color-scheme: dark light;
+} */
+
+/* RESET END */
+.container {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    max-width: 1440px;
+    margin: auto;
+    background: white;
+}
+
+
+.card {
+    height: 100vh;
+    position: relative;
+}
+
+
+
+
+#back-card {
+    width: fit-content;
+    background-image: url('images/bg-card-back.png');
+    background-repeat: no-repeat;
+    position: relative;
+    top: -575px;
+    left: 270px;
+    border-radius: 10px;
+    z-index: 999;
+    margin: 0;
+    box-shadow: 10px 10px 52px 0px rgba(0, 0, 0, 0.17);
+    -webkit-box-shadow: 10px 10px 52px 0px rgba(0, 0, 0, 0.17);
+    -moz-box-shadow: 10px 10px 52px 0px rgba(0, 0, 0, 0.17);
+}
+
+#front-card {
+    width: fit-content;
+    background-image: url('images/bg-card-front.png');
+    background-repeat: no-repeat;
+    position: relative;
+    top: -1100px;
+    left: 185px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    box-shadow: 10px 10px 52px 0px rgba(0, 0, 0, 0.17);
+    -webkit-box-shadow: 10px 10px 52px 0px rgba(0, 0, 0, 0.17);
+    -moz-box-shadow: 10px 10px 52px 0px rgba(0, 0, 0, 0.17);
+}
+
+.front-card-info {
+    position: absolute;
+    width: 100%;
+    padding: 25px;
+}
+
+.card-num {
+    text-transform: capitalize;
+    width: 100%;
+    text-align: left;
+    margin-top: 65px;
+    margin-bottom: 20px;
+    font-size: 28px;
+    letter-spacing: .2ch;
+    line-height: 1.5;
+    padding-inline: 0;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-name,
+.exp-date {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 0.1ch;
+}
+
+.front-card-info img {
+    visibility: visible !important;
+}
+
+
+
+#back-card .cvc {
+    position: absolute;
+    bottom: 114px;
+    left: 350px;
+    letter-spacing: 0.2ch;
+}
+
+
+#back-card img,
+#front-card img {
+    visibility: hidden;
+}
+
+#back-card p,
+#front-card p {
+    color: var(--white);
+}
+
+form {
+    display: block;
+    max-width: 25%;
+    margin-left: 25%;
+    margin-bottom: 100px;
+}
+
+input {
+
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    border-radius: 7px;
+    padding-block: 10px;
+    padding-inline: 10px;
+    border: 1px solid var(--light-gray-violet);
+    font-size: 15px;
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+    margin: 0;
+}
+
+:focus {
+    border: 1px solid hsl(278, 94%, 30%);
+}
+
+
+form label {
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.2ch;
+}
+
+::placeholder {
+    color: var(--light-gray-violet);
+    font-size: 15px;
+}
+
+.col {
+    display: flex;
+    gap: 15px;
+}
+
+.left {
+    width: 45%;
+}
+
+
+.left-inner {
+    display: flex;
+    gap: 8px;
+}
+
+.error {
+    display: none;
+    font-size: 10px;
+    margin-top: -8px;
+    color: var(--input-error);
+}
+
+.error-input {
+    border: 1px solid var(--input-error);
+}
+
+#sub-btn,
+#continue-btn {
+    width: 100%;
+    padding-block: 13px;
+    margin-top: 20px;
+    font-size: 15px;
+    color: var(--white);
+    border: none;
+    border-radius: 7px;
+    background-color: var(--darker-violet);
+}
+
+#complete {
+    display: none;
+    width: 25%;
+    margin-left: 25%;
+    margin-bottom: 100px;
+}
+
+.complete-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.complete img {
+    width: 20%;
+}
+
+#complete h1 {
+    margin-top: 10px;
+    letter-spacing: 0.1ch;
+    font-size: 22px;
+}
+
+#complete p {
+    font-size: 15px;
+    color: var(--dark-gray-violet);
+}
+
+@media (max-width:375px) {
+    .container {
+        display: block;
+        position: relative;
+    }
+
+    .card {
+        max-height: 330px;
+    }
+
+    #back-card {
+        top: -210px;
+        left: 65px;
+        width: 78%;
+        background-size: contain;
+        border-radius: 5px;
+        z-index: 1;
+    }
+
+    #back-card .cvc {
+        bottom: 75px;
+        left: 234px;
+        z-index: 999;
+        font-size: 10px;
+    }
+
+    #front-card {
+        top: -279px;
+        left: 10px;
+        width: 78%;
+        background-size: contain;
+        border-radius: 5px;
+        z-index: 99;
+    }
+
+    .front-card-info img {
+        width: 24%;
+    }
+
+    .card-name,
+    .exp-date {
+        font-size: 10px;
+    }
+
+    .card-num {
+        font-size: 17px;
+        margin-top: 35px;
+        margin-bottom: 15px;
+    }
+
+    form {
+
+        max-width: 90%;
+        margin: auto;
+    }
+
+    form label {
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .left,
+    .right {
+        flex: 1;
+    }
+
+    #complete {
+        display: none;
+        width: 90%;
+        margin: auto;
+    }
+
+    #complete h1 {
+        margin-top: 25px;
+        font-size: 1.7rem;
+    }
+
+    #complete p {
+        font-size: 18px;
+    }
+
+    #continue-btn {
+        margin-top: 30px;
+        padding-block: 18px;
+        font-size: 17px;
+    }
+
+}
